@@ -3,8 +3,6 @@
 #
 
 import hashlib
-import time
-import sys
 from string import ascii_lowercase
 from itertools import product
 
@@ -19,7 +17,6 @@ def getHashedPasswordsDict():
     print("Initializing hashed dictionary...")
     combs = product(char_string, repeat=5)
     new_dict = dict()
-    counter = 0
     for comb in combs:
         plain_passwd = "".join(comb)
         key = str(hashlib.md5(plain_passwd.encode()).hexdigest())
@@ -62,6 +59,7 @@ def main():
     print("Writting to file...")
     writeToFile(occurances)
     print("Writting complete")
+    exit()
 
 if __name__ == '__main__':
     main()
